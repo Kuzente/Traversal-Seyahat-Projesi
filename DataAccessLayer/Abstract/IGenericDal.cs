@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IGuideDal:IGenericDal<Guide>
+    public interface IGenericDal<T> where T : BaseEntity
     {
+        void Insert(T t);
+        void Delete(T t);
+        void Update(T t);
+        List<T> GetList();
     }
 }
