@@ -39,23 +39,24 @@
 						Kullanıcı Girişi
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input" data-validate="Kullanıcı Adı Girmek Zorunlu">
 						<input class="input100" type="text" asp-for="Username" placeholder="Kullanıcı Adı">
-						<span asp-validation-for="Username"></span>
+						<span  asp-validation-for="Username"></span>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
+					<div class="wrap-input100 validate-input" data-validate="Şifre Girmek Zorunlu">
 						<input class="input100" type="password" asp-for="Password" placeholder="Şifre">
-						<span asp-validation-for="Password"></span>
+						<span  asp-validation-for="Password"></span>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
+					
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
