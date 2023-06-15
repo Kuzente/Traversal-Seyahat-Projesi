@@ -1,16 +1,16 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace TraversalCoreProject.ViewComponents.Default
 {
-    public class _PopularDestinations:ViewComponent
+    public class _SubAboutPartial : ViewComponent
     {
-        DestinationManager destinationManager = new DestinationManager(new EfDestinationDal());
+        SubAboutManager subAboutManager = new SubAboutManager(new EfSubAboutDal());
         public IViewComponentResult Invoke()
         {
-            var values = destinationManager.TGetList();
+            var values = subAboutManager.TGetList().FirstOrDefault();
             return View(values);
         }
     }
