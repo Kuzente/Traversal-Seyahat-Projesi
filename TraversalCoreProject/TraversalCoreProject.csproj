@@ -25,5 +25,9 @@
 	  <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
 	  <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Areas\Member\Data\" />
+	  <Folder Include="Areas\Member\Models\" />
+	</ItemGroup>
 
 </Project>
