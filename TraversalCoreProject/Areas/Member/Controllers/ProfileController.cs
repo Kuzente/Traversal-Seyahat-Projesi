@@ -46,15 +46,18 @@ namespace TraversalCoreProject.Areas.Member.Controllers
                 await p.Image.CopyToAsync(stream);
                 user.ImageUrl = imageName;
             }
-            user.Name = p.Name;
-            user.Surname=p.Surname;
-            user.PhoneNumber = p.PhoneNumber;
-            user.Email = p.Email;
-            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, p.Password);
-            var result = await _userManager.UpdateAsync(user);
-            if (result.Succeeded)
+           if (p.Password == p.ConfirmPassword)
             {
-                return RedirectToAction("SignIn", "Login");
+                user.Name = p.Name;
+                user.Surname = p.Surname;
+                user.PhoneNumber = p.PhoneNumber;
+                user.Email = p.Email;
+                user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, p.Password);
+                var result = await _userManager.UpdateAsync(user);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("SignIn", "Login");
+                }
             }
             return View();
         }
