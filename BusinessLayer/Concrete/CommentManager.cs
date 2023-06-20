@@ -25,26 +25,31 @@ namespace BusinessLayer.Concrete
 
         public void TDelete(Comment entity)
         {
-            throw new NotImplementedException();
+            _CommentDal.Delete(entity);
         }
 
         public Comment TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _CommentDal.GetById(id);
         }
 
         public List<Comment> TGetList()
         {
-            throw new NotImplementedException();
+            return _CommentDal.GetList();
         }
 
         public void TUpdate(Comment entity)
         {
-            throw new NotImplementedException();
+             _CommentDal.Update(entity);
         }
         public List<Comment> TGetCommentByDestinationId(int id)
         {
             return _CommentDal.GetListByFilter(x => x.DestinationID == id);
+        }
+
+        public List<Comment> TGetCommentWithDestination()
+        {
+            return _CommentDal.GetCommentWithDestination();
         }
     }
 }

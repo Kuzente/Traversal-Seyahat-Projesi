@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class About:BaseEntity
+    public class About: BaseEntity
     {
        
         public string Title { get; set; }

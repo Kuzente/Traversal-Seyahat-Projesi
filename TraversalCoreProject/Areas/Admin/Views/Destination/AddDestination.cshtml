@@ -1,0 +1,73 @@
+﻿@model Destination
+@{
+    ViewData["Title"] = "AddDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Rota Sayfası</h1>
+<form method="post">
+   
+    <div class="row justify-content-between">
+        <div class="form-group col-3">
+            @Html.Label("Şehir")
+            <input class="form-control" type="text" asp-for="City" />
+        </div>
+        <div class="form-group col-3">
+            @Html.Label("Gün/Gece")
+            <input class="form-control" type="text" asp-for="DayNight" />
+        </div>
+        <div class="form-group col-3">
+            @Html.Label("Fiyat")
+            <input class="form-control" type="text" asp-for="Price" />
+        </div>
+        <div class="form-group col-3">
+            @Html.Label("Kapasite")
+            <input class="form-control" type="text" asp-for="Capacity" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Açıklama")
+        <textarea cols="30" rows="5" class="form-control" asp-for="Description"></textarea>
+    </div>
+    <div class="row">
+        <div class="form-group col-6">
+            @Html.Label("Ana Görsel")
+            <input class="form-control" type="text" asp-for="Image" />
+        </div>
+
+        <div class="form-group col-6">
+            @Html.Label("Kapak Görseli")
+            <input class="form-control" type="text" asp-for="CoverImage" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Paragraf 1")
+        <textarea cols="30" rows="5" class="form-control" asp-for="Article1"></textarea>
+    </div>
+    <div class="form-group">
+        @Html.Label("Paragraf 2 Başlık")
+        <input class="form-control" type="text" asp-for="Article2Title" />
+    </div>
+    <div class="form-group">
+        @Html.Label("Paragraf 2")
+        <textarea cols="30" rows="5" class="form-control" asp-for="Article2"></textarea>
+    </div>
+    <div class="form-group">
+        @Html.Label("Alıntı")
+        <textarea cols="30" rows="3" class="form-control" asp-for="Quote"></textarea>
+    </div>
+    <div class="row">
+        <div class="form-group col-6">
+            @Html.Label("Küçük Resim 1")
+            <input class="form-control" type="text" asp-for="SmallImage1" />
+        </div>
+        <div class="form-group col-6">
+            @Html.Label("Küçük Resim 2")
+            <input class="form-control" type="text" asp-for="SmallImage2" />
+        </div>
+    </div>
+    <br />
+   
+    <button class="btn btn-primary">Yeni Rota Oluştur</button>
+</form>
+
