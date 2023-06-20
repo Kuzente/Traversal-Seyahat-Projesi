@@ -17,4 +17,7 @@ Reminder
 13. Adding Edit Profile view with controls
 14. Listing Destinations on Member Panel
 15. Adding Reservation Pages And Filters
-16. 
+16. Adding Dashboard Page and ViewComponents
+17. Adding Admin Layout and listing Destinations in Admin Destination Page
+18. Admin Panel Revisions
+19. Removing EF Dependencies 
