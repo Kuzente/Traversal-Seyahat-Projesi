@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalCoreProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [AllowAnonymous]
+    [Route("Admin/[controller]/[action]/{id?}")]
     public class CommentController : Controller
     {
         private readonly ICommentService _commentService;
@@ -26,7 +26,7 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
         {
             var value = _commentService.TGetById(id);
             _commentService.TDelete(value);
-            return RedirectToAction("Index","Comment","Admin");
+            return RedirectToAction("Index");
         }
     }
 }

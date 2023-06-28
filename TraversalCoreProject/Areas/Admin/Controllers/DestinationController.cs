@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalCoreProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/[controller]/[action]/{id?}")]
     public class DestinationController : Controller
     {
         IDestinationService _destinationService;
@@ -30,7 +31,7 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
         public IActionResult AddDestination(Destination p)
         {
             _destinationService.TAdd(p);
-            return RedirectToAction("Index","Destination");
+            return RedirectToAction("Index");
         }
         public IActionResult DeleteDestination(int id)
         {

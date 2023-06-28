@@ -1,5 +1,6 @@
 using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
+using BusinessLayer.Container;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
@@ -44,12 +45,7 @@ namespace TraversalCoreProject
 				.Build();
 				config.Filters.Add(new AuthorizeFilter(policy));
 			});
-            services.AddScoped<ICommentService,CommentManager>();
-            services.AddScoped<ICommentDal, EfCommentDal>();
-            services.AddScoped<IDestinationService, DestinationManager>();
-            services.AddScoped<IDestinationDal, EfDestinationDal>();
-            services.AddScoped<IAppUserService, AppUserManager>();
-            services.AddScoped<IAppUserDal, EfAppUserDal>();
+            services.ContainerDependencies();
 
 
         }
@@ -67,12 +63,13 @@ namespace TraversalCoreProject
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code={0}");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
 			app.UseAuthentication();
-
+            
 			app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -88,13 +85,7 @@ namespace TraversalCoreProject
                   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
                 );
             });
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                  name: "areas",
-                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                );
-            });
+            
         }
     }
 }

@@ -5,13 +5,16 @@ using Microsoft.AspNetCore.Mvc;
 namespace TraversalCoreProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/[controller]/[action]/{id?}")]
     public class UserController : Controller
     {
-        IAppUserService _appUserService;
+        private readonly IAppUserService _appUserService;
+        private readonly IReservationService _reservationService;
 
-        public UserController(IAppUserService appUserService)
+        public UserController(IAppUserService appUserService, IReservationService reservationService)
         {
             _appUserService = appUserService;
+            _reservationService = reservationService;
         }
 
         public IActionResult Index()
@@ -53,10 +56,11 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
             _appUserService.TGetList();
             return View();
         }
-        public IActionResult ReservationtUser(int id)
+        [HttpGet]
+        public IActionResult ReservationUser(int id)
         {
-            _appUserService.TGetList();
-            return View();
+           var values = _reservationService.GetListWithReservationByAccepted(id); 
+            return View(values);
         }
     }
 }
